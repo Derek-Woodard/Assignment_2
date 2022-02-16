@@ -1,5 +1,5 @@
 %% Assignment 2 Finite Difference Method
-% Part 1
+% Part 2
 
 clear all;
 close all;
