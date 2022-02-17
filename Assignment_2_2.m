@@ -63,48 +63,26 @@ for i=1:nx
             G(n,:) = 0;
             G(n,n) = 1;
             F(n) = 1;
-            
-%             Gb(n,:) = 0;
-%             Gb(n,n) = 1;
-%             Fb(n) = 0;
         elseif i == nx
             G(n,:) = 0;
             G(n,n) = 1;
             F(n) = 0;
-            
-%             Gb(n,:) = 0;
-%             Gb(n,n) = 1;
-%             Fb(n) = 0;
         elseif j == 1
             G(n,nxp) = (sigs(i+1,j) + sigs(i,j))/2;
             G(n,nxm) = (sigs(i-1,j) + sigs(i,j))/2;
             G(n,nyp) = (sigs(i,j+1) + sigs(i,j))/2;
             G(n,n) = -(G(n,nxp) + G(n,nxm) + G(n,nyp));
-            
-%             Gb(n,:) = 0;
-%             Gb(n,n) = 1;
-%             Fb(n) = 1;
         elseif j == ny
             G(n,nxp) = (sigs(i+1,j) + sigs(i,j))/2;
             G(n,nxm) = (sigs(i-1,j) + sigs(i,j))/2;
             G(n,nym) = (sigs(i,j-1) + sigs(i,j))/2;
             G(n,n) = -(G(n,nxp) + G(n,nxm) + G(n,nym));
-            
-%             Gb(n,:) = 0;
-%             Gb(n,n) = 1;
-%             Fb(n) = 1;
         else
             G(n,nxp) = (sigs(i+1,j) + sigs(i,j))/2;
             G(n,nxm) = (sigs(i-1,j) + sigs(i,j))/2;
             G(n,nyp) = (sigs(i,j+1) + sigs(i,j))/2;
             G(n,nym) = (sigs(i,j-1) + sigs(i,j))/2;
             G(n,n) = -(G(n,nxp) + G(n,nxm) + G(n,nyp) + G(n,nym));
-            
-%             Gb(n,n) = -4;
-%             Gb(n,n+1) = 1;
-%             Gb(n,n-1) = 1;
-%             Gb(n,n+ny) = 1;
-%             Gb(n,n-ny) = 1;
         end
     end
 end
@@ -119,8 +97,6 @@ title('Plot of sigma values in region');
 axis tight
 set(gca,'View', [45 45]);
 
-
-
 % Now that the matricies are set up, the solution can be found
 V = G\F';
 % Vb = Gb\Fb;
@@ -131,7 +107,6 @@ for i = 1:nx
     for j = 1:ny
         n = j+(i-1)*ny;
         S(j,i) = V(n);
-%         Sb(i,j) = Vb(n);
     end
 end
 
