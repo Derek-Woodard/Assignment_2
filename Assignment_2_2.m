@@ -44,11 +44,9 @@ end
 %%
 % The G matrix is formed using the number of points calculated above
 G = zeros(nx*ny);
-% Gb = zeros(nx*ny,nx*ny);
 
 % Now we generate the F matrix
 F = zeros(1,nx*ny);
-% Fb = zeros(nx*ny,1);
 
 for i=1:nx
     for j=1:ny
@@ -99,9 +97,7 @@ set(gca,'View', [45 45]);
 
 % Now that the matricies are set up, the solution can be found
 V = G\F';
-% Vb = Gb\Fb;
 S = zeros(ny,nx,1);
-% Sb = zeros(nx,ny,1);
 
 for i = 1:nx
     for j = 1:ny
